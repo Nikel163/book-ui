@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    root: info
+    netcracker:
+      bookstore: debug
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/books
+    
+api:
+  prefix:
+    v1: /api/v1/bookstore    

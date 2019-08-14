@@ -1,0 +1,13 @@
+<div class="global-wrap">
+    <div class="wrap">
+        <label for="title-filter">Filter by title:</label>
+        <input #titleFilter id="title-filter" (input)="filter(titleFilter.value)" placeholder="input book title" />
+    </div>
+
+    <div class="wrap">
+        <label for="author-filter">Filter by author:</label>
+        <input #authorFilter id="author-filter" (input)="filter(authorFilter.value)" placeholder="input author's name"/>
+    </div>
+
+    <div class="button">Add new book</div>
+</div>
