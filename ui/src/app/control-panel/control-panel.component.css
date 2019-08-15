@@ -28,14 +28,15 @@ input{
     align-items: center;
 }
 .button{
+    position: absolute;
+    right: 0;
     width: 160px;
     height: 34px;
-    margin: 35px 66px 35px 694px;
+    margin: 35px 66px 35px 0px;
     border: 1px solid #000;
     border-radius: 5px;
     background-color: #E0E0E0;
     cursor: pointer;
-    cursor: hand;
     display: flex;
     justify-content: center;
     align-items: center;

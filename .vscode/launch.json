@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BookStoreApplication",
+            "request": "launch",
+            "mainClass": "netcracker.bookstore.BookStoreApplication",
+            "projectName": "book-store"
+        }
+    ]
+}
