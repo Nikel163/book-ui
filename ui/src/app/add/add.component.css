@@ -1,0 +1,100 @@
+.global-wrap{
+    display: flex;
+}
+.left-block, .right-block{
+    display: flex;
+    flex-direction: column;
+    margin: 35px 50px 0px 35px;
+}
+.left-input-wrap, .right-input-wrap{
+    display: flex;
+    margin-bottom: 22px;
+}
+.left-input-wrap label, .right-input-wrap label{
+    width: 150px;
+    height: 34px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.medium-input{
+    width: 180px;
+}
+.small-input{
+    width: 140px;
+}
+.right-input-wrap label{
+    width: 180px;
+}
+input{
+    width: 500px;
+    height: 34px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-left: 7px;
+    padding-left: 5px;
+}
+::placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #BDBDBD;
+    display: flex;
+    align-items: center;
+}
+textarea{
+    width: 500px;
+    height: 300px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-left: 7px;
+    padding: 2px 0px 0px 5px;
+    padding-left: 5px;
+    font-weight: normal;
+    resize: none;
+}
+.info-ico{
+    width: 34px;
+    height: 34px;
+    background-image: url('../../res/info.svg');
+    margin: 0px 7px;
+    cursor: pointer;
+}
+.eg{
+    width: 184px;
+    height: 34px;
+    font-style: italic;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.char{
+    width: 25px;
+    height: 34px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-wrap{
+    display: flex;
+    margin-bottom: 50px;
+}
+.back, .save{
+    width: 282px;
+    height: 34px;
+    background: #e0e0e0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #4f4f4f;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.save{
+    margin-left: 96px;
+}

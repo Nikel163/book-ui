@@ -1,1 +1,55 @@
-<p>add works!</p>
+<div class="global-wrap">
+    <div class="left-block">
+        <div class="left-input-wrap">
+            <label for="title">Book title:</label>
+            <input id="title" placeholder="input book title">
+        </div>
+        <div class="left-input-wrap">
+            <label for="author">Author:</label>
+            <input id="author" placeholder="input author's name">
+        </div>
+        <div class="left-input-wrap">
+            <label for="publisher">Publisher:</label>
+            <input id="publisher" placeholder="input publisher">
+        </div>
+        <div class="left-input-wrap">
+            <label for="description">Description:</label>
+            <textarea id="description" cols="43" rows="14" wrap="off" placeholder="input description"></textarea>
+        </div>
+        <div class="button-wrap">
+            <div class="back">Back</div>
+            <div class="save">Save</div>
+        </div>
+    </div>
+
+    <div class="right-block">
+        <div class="right-input-wrap">
+            <label for="isbn">ISBN:</label>
+            <input class="medium-input" id="isbn" placeholder="input ISBN">
+            <div class="info-ico" (click)="show = !show" title="e.g. 978-0000000000"></div>
+            <div *ngIf="show" class="eg">e.g. 978-0000000000</div>
+        </div>
+        <div class="right-input-wrap">
+            <label for="language">Language:</label>
+            <input class="medium-input" id="language" placeholder="input language">
+        </div>
+        <div class="right-input-wrap">
+            <label for="year">Publishing year:</label>
+            <input class="small-input" id="year" placeholder="input year">
+        </div>
+        <div class="right-input-wrap">
+            <label for="pages">Number of pages:</label>
+            <input class="small-input" id="pages" placeholder="input amount">
+        </div>
+        <div class="right-input-wrap">
+            <label for="weight">Weight:</label>
+            <input class="small-input" id="weight" placeholder="input weight">
+            <div class="char">g</div>
+        </div>
+        <div class="right-input-wrap">
+            <label for="price">Price:</label>
+            <input class="small-input" id="price" placeholder="input price">
+            <div class="char">$</div>
+        </div>
+    </div>
+</div>

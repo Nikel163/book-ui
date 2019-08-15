@@ -19,6 +19,7 @@
     font-size: 32px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .header__elem-wrapper {
     display: flex;
@@ -54,6 +55,7 @@
     right: -5px;
     margin-left: 0px;
     font-size: 14px;
+    line-height: 15px;
     font-weight: 400;
 }
 .header__logout-button{

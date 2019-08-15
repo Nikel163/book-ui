@@ -36,6 +36,12 @@ public class BookController {
         return bookService.findByTitle(nameRegex);
     }
 
+    @GetMapping("/{id}")
+    @ApiOperation("Get book")
+    public BookDTO getById(@PathVariable("id") String id){
+        return bookService.getById(id);
+    }
+
     @PostMapping("/add")
     @ApiOperation("Add new book")
     public BookDTO add(@Valid @RequestBody BookDTO book){

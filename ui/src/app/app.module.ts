@@ -7,6 +7,7 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddComponent } from './add/add.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddComponent } from './add/add.component';
     ControlPanelComponent,
     BookCardComponent,
     DashboardComponent,
-    AddComponent
+    AddComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule
