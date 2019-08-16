@@ -1,15 +1,14 @@
+<app-control-panel></app-control-panel>
 <div class="cols">
-    <div class="card" *ngFor="let i of ii">
-        <a routerLink="">
-            <div class="title">
-                Beginning Programming with Java For Dummies (For Dummies (Computer/Tech))
-            </div> 
-        </a>
-        <div class="author">Nathan Clark</div>
-        <div class="publisher">CreateSpace Independent Publishing Platform</div>
+    <div class="card" *ngFor="let book of books">
+        <div routerLink="/detail/{{book.id}}" class="title">
+            {{book.title}}
+        </div> 
+        <div class="author">{{book.author}}</div>
+        <div class="publisher">{{book.publisher}}</div>
         <div class="wrapper">
-            <div class="price">156.38 $</div>
-            <div class="add-button">Add to cart</div>    
+            <div class="price">{{book.price | currency}}</div>
+            <div class="add-button" (click)="add(book)">Add to cart</div>    
         </div>
     </div>    
 </div>

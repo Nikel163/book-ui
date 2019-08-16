@@ -4,7 +4,7 @@ a{
 .cols{
     display: flex;
     flex-flow: row wrap;
-    margin: 0px 50px;
+    margin: 35px 35px;
 }
 .card{
     width: 240px;
@@ -64,7 +64,7 @@ a{
     align-items: center;
     justify-content: center;
 }
-.add-button{
+.remove-button{
     width: 125px;
     height: 33px;
     font-weight: bold;
@@ -72,8 +72,34 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFF;
-    background-color: #0038FF;
+    background: #EB5757;
+    color: #F2F2F2;
     border-radius: 10px;
     cursor: pointer;
+}
+.empty{
+    margin: 35px auto auto 35px;
+}
+.info{
+    margin-bottom: 25px;
+    font-size: 36px;
+}
+.button-wrap{
+    display: flex;
+    margin: 45px;
+}
+.button{
+    margin-right: 50px;
+    width: 200px;
+    height: 34px;
+    color: #4F4F4F;
+    background: #E0E0E0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

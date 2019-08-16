@@ -48,16 +48,22 @@ public class BookController {
         return bookService.add(book);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     @ApiOperation("Update book")
     public BookDTO update(@PathVariable("id") String id, @Valid @RequestBody BookDTO book){
         return bookService.update(id, book);
     }
 
-    @DeleteMapping("delete/{id}")
-    @ApiOperation("Delete book")
+    @GetMapping("/delete/{id}")
+    @ApiOperation("Delete book by id")
     public void deleteById(@PathVariable("id") String id){
         bookService.deleteById(id);
     }
+
+    // @DeleteMapping("/delete/{id}")
+    // @ApiOperation("Delete whole book")
+    // public void delete(@Valid @RequestBody BookDTO book){
+    //     bookService.delete(book);
+    // }
 
 }

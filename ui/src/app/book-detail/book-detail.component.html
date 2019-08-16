@@ -16,32 +16,32 @@
     </div>
     <div class="details">
         <div class="detail">
-            <b>Publisher:</b> {{ book.publisher }}
+            <b>Publisher: </b> {{ book.publisher }}
         </div>
         <div class="detail">
-            <b>ISBN:</b> {{book.isbn}}
+            <b>ISBN: </b> {{book.isbn}}
         </div>
         <div class="detail">
-            <b>Language:</b> {{ book.language }}
+            <b>Language: </b> {{ book.language }}
         </div>
         <div class="detail">
-            <b>Weight:</b> {{book.weight}} g
+            <b>Weight: </b> {{book.weight}} g
         </div>
         <div class="detail">
-            <b>Publishing year:</b> {{book.year}}
+            <b>Publishing year: </b> {{book.year}}
         </div>
         <div class="detail">
-            <b>Number of pages:</b> {{book.pagesAmount}}
+            <b>Number of pages: </b> {{book.pagesAmount}}
         </div>
         <div class="detail">
-            <b>Price:</b> {{book.price | currency }}
+            <b>Price: </b> {{book.price | currency }}
         </div>
     </div>
     <div class="button-panel">
-        <div class="button">Back</div>
-        <div class="button">Add to cart</div>
-        <div class="button">Buy</div>
-        <div class="danger">Delete</div>
+        <div class="button" (click)="back()">Back</div>
+        <div class="button" (click)="add(book)">Add to cart</div>
+        <div routerLink="/cart" class="button" (click)="add(book)">Buy</div>
+        <div class="danger" (click)="delete(book.id)">Delete</div>
     </div>
 
 </div>

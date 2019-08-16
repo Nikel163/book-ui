@@ -3,8 +3,10 @@ export class Book {
     title: string
     author: string
     publisher: string
-    description: string
     isbn: string
+    language: string
+    description: string
+    year: number
     pagesAmount: number
     weight: number
     price: number

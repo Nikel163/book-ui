@@ -1,0 +1,27 @@
+<div *ngIf="books.length > 0">
+    <div class="cols">
+        <div class="card" *ngFor="let book of books">
+            <div routerLink="/detail/{{book.id}}" class="title">
+                {{book.title}}
+            </div> 
+            <div class="author">{{book.author}}</div>
+            <div class="publisher">{{book.publisher}}</div>
+            <div class="wrapper">
+                <div class="price">{{book.price | currency}}</div>
+                <div class="remove-button" (click)="remove(book)">Remove</div>    
+            </div>
+        </div>    
+    </div>
+    <div class="button-wrap">
+        <div class="button" (click)="back()">Back</div>
+        <div class="button" (click)="clear()">Clear</div>
+        <div class="button" (click)="confirm()">Confirm</div>
+    </div>
+</div>
+<div *ngIf="books.length == 0" class="empty">
+    <div class="info">
+        The cart is empty
+    </div>
+    <div class="button" (click)="back()">Back</div>
+</div>
+    

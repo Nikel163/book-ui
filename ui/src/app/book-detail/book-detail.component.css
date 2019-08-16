@@ -38,6 +38,7 @@
     height: 34px;
     display: flex;
     align-items: center;
+    white-space: pre-wrap;
 }
 .button-panel{
     margin-top: 34px;
