@@ -11,7 +11,7 @@ import { Book } from "./book";
 })
 export class BookService {
 
-  // defUrl = "http://localhost:8080/api/v1/bookstore/book"
+  counter = 0 
   defUrl = "/api/book"
 
   selectedBooks: Book[] = []
@@ -40,16 +40,16 @@ export class BookService {
       )
   }
 
-  delete(id: string){
+  delete(id: string): Observable<void>{
     const url = `${this.defUrl}/delete/${id}`
-    return this.http.get(url)
-      .pipe(catchError(this.handleError('deleteBook')))
+    return this.http.delete<void>(url, this.httpOptions)
+      .pipe(catchError(this.handleError<void>('deleteBook')))
   }
 
-  add(book: Book): Observable<Book>{
+  add(book: Book){
     const url = `${this.defUrl}/add`
-    return this.http.post<Book>(url, book, this.httpOptions)
-      .pipe(catchError(this.handleError<Book>('addBook')))
+    return this.http.post(url, book)
+      .pipe(catchError(this.handleError('addBook')))
   }
 
   getSelectedBooks(): Book[] {
@@ -61,6 +61,7 @@ export class BookService {
   }
 
   addToCart(book: Book){
+    this.counter++
     this.selectedBooks.push(book)
   }
 
