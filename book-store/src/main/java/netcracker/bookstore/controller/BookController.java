@@ -54,16 +54,11 @@ public class BookController {
         return bookService.update(id, book);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     @ApiOperation("Delete book by id")
     public void deleteById(@PathVariable("id") String id){
         bookService.deleteById(id);
     }
 
-    // @DeleteMapping("/delete/{id}")
-    // @ApiOperation("Delete whole book")
-    // public void delete(@Valid @RequestBody BookDTO book){
-    //     bookService.delete(book);
-    // }
 
 }

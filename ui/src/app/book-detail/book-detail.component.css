@@ -63,3 +63,10 @@
     background: #EB5757;
     color: #F2F2F2;
 }
+.empty{
+    margin: 35px auto auto 35px;
+}
+.info{
+    margin-bottom: 25px;
+    font-size: 36px;
+}

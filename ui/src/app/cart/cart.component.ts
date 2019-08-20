@@ -33,6 +33,6 @@ export class CartComponent implements OnInit {
 
   confirm(){
     this.clear()
-    alert('You bought books! Congratulations!')
+    alert('Thank you for your purchase!')
   }
 }

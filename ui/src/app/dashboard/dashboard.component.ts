@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   }
 
   add(book: Book){
-    this.bookService.add(book)
+    this.bookService.addToCart(book)
   }
 
 }

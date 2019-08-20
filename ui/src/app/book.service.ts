@@ -46,11 +46,21 @@ export class BookService {
       .pipe(catchError(this.handleError('deleteBook')))
   }
 
+  add(book: Book): Observable<Book>{
+    const url = `${this.defUrl}/add`
+    return this.http.post<Book>(url, book, this.httpOptions)
+      .pipe(catchError(this.handleError<Book>('addBook')))
+  }
+
   getSelectedBooks(): Book[] {
     return this.selectedBooks
   }
 
-  add(book: Book){
+  countSelectedBooks(): number {
+    return this.selectedBooks.length
+  }
+
+  addToCart(book: Book){
     this.selectedBooks.push(book)
   }
 

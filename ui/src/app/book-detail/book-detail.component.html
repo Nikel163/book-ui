@@ -1,4 +1,4 @@
-<div class="global-wrap">
+<div *ngIf="book" class="global-wrap">
     <div class="main-info">
         <div class="title">
             {{ book.title }}
@@ -43,5 +43,10 @@
         <div routerLink="/cart" class="button" (click)="add(book)">Buy</div>
         <div class="danger" (click)="delete(book.id)">Delete</div>
     </div>
-
+</div>
+<div class="empty" *ngIf="!book">
+    <div class="info">
+        Book not found
+    </div>
+    <div class="button" (click)="back()">Back</div>
 </div>
