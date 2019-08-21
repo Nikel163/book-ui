@@ -1,4 +1,4 @@
-<form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="global-wrap">
+<form [formGroup]="addForm" class="global-wrap">
     <div class="left-block">
         <div class="left-input-wrap">
             <label>Book title:</label>
@@ -31,7 +31,7 @@
         </div>
         <div class="button-wrap">
             <button class="back" (click)="back()">Back</button>
-            <input type="submit" [disabled]="addForm.pristine || addForm.invalid" value="Save" class="save">
+            <button type="submit" [disabled]="addForm.pristine || addForm.invalid" (click)="onSubmit()" class="save">Save</button>
         </div>
     </div>
 

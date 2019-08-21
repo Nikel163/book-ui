@@ -1,6 +1,19 @@
-<app-control-panel></app-control-panel>
+<div class="global-wrap">
+    <div class="wrap">
+        <label for="title-filter">Filter by title:</label>
+        <input id="title-filter" [(ngModel)]="titleTerm" (input)="triggerFilter()" placeholder="input book title">
+    </div>
+
+    <div class="wrap">
+        <label for="author-filter">Filter by author:</label>
+        <input id="author-filter" [(ngModel)]="authorTerm" (input)="triggerFilter()" placeholder="input author's name">
+    </div>
+
+    <div routerLink="/add" class="button">Add new book</div>
+</div>
+    
 <div class="cols">
-    <div class="card" *ngFor="let book of books">
+    <div class="card" *ngFor="let book of books | bookFilter:titleTerm:authorTerm">
         <div routerLink="/detail/{{book.id}}" class="title">
             {{book.title}}
         </div> 

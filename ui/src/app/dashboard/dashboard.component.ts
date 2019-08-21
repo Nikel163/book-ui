@@ -10,6 +10,9 @@ import { BookService } from '../book.service';
 export class DashboardComponent implements OnInit {
   
   books: Book[]
+  filteredBooks: Book[]
+  titleTerm: string
+  authorTerm: string
 
   constructor(
     private bookService: BookService
@@ -17,12 +20,33 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.bookService.getBooks().subscribe(
-      books => this.books = books
+      books => {
+        this.books = books
+        this.filteredBooks = books
+      }
     )
+    
   }
 
   add(book: Book){
     this.bookService.addToCart(book)
+  }
+
+  triggerFilter(){
+    this.filteredBooks = this.filterBooks()
+  }
+
+  filterBooks(): Book[]{
+    this.filteredBooks = this.books
+    if( this.titleTerm !== undefined ){
+        if( this.authorTerm !== undefined ){
+          this.filteredBooks = this.books.filter(book => book.title.toLowerCase().indexOf(this.titleTerm.toLowerCase()) !== -1 
+          && book.author.toLowerCase().indexOf(this.authorTerm.toLowerCase()) !== -1 )
+        } else {
+          this.filteredBooks = this.books.filter(book => book.title.toLowerCase().indexOf(this.titleTerm.toLowerCase()) !== -1)
+        }
+    }
+    return this.filteredBooks
   }
 
 }
