@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 import netcracker.bookstore.dto.BookDTO;
 import netcracker.bookstore.service.BookService;
 
-@CrossOrigin(origins = "http://localhost:4020", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("${api.prefix.v1}/book")
 @Api(tags = "BookController")
@@ -46,12 +46,6 @@ public class BookController {
     @ApiOperation("Add new book")
     public BookDTO add(@Valid @RequestBody BookDTO book){
         return bookService.add(book);
-    }
-
-    @PutMapping("/update/{id}")
-    @ApiOperation("Update book")
-    public BookDTO update(@PathVariable("id") String id, @Valid @RequestBody BookDTO book){
-        return bookService.update(id, book);
     }
 
     @DeleteMapping("/delete/{id}")

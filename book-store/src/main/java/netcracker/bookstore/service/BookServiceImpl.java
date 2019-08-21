@@ -43,15 +43,6 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookDTO update(String id, BookDTO book) throws BookNotFoundException {
-        if(!bookRepository.existsById(id)){
-            throw new BookNotFoundException(id);
-        }
-        book.setId(id);
-        return new BookDTO(bookRepository.save(new BookEntity(book)));
-    }
-
-    @Override
     public BookDTO getById(String id) throws BookNotFoundException {
         return bookRepository.findById(id).map(BookDTO::new).orElseThrow(() -> new BookNotFoundException(id));
     }

@@ -1,6 +1,3 @@
-a{
-    cursor: pointer;
-}
 .cols{
     display: flex;
     flex-flow: row wrap;
