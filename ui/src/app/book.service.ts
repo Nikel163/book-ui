@@ -56,10 +56,6 @@ export class BookService {
     return this.selectedBooks
   }
 
-  countSelectedBooks(): number {
-    return this.selectedBooks.length
-  }
-
   addToCart(book: Book){
     this.counter++
     this.selectedBooks.push(book)
