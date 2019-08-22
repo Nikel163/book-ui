@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   name = "Trevor Umpalumpa"
 
   constructor(
-    private bookService: BookService
+    public bookService: BookService
   ) { }
 
   ngOnInit() {

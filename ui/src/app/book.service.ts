@@ -12,7 +12,7 @@ import { Book } from "./book";
 export class BookService {
 
   counter = 0 
-  defUrl = "/api/book"
+  defUrl = "http://localhost:8080/api/v1/bookstore/book"
 
   selectedBooks: Book[] = []
 
