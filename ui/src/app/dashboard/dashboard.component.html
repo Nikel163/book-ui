@@ -12,6 +12,7 @@
     <div routerLink="/add" class="button">Add new book</div>
 </div>
     
+
 <div class="cols">
     <div class="card" *ngFor="let book of filteredBooks">
         <div routerLink="/detail/{{book.id}}" class="title">
@@ -25,3 +26,5 @@
         </div>
     </div>    
 </div>
+
+

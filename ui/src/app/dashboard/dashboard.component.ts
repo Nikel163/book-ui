@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,13 +34,15 @@ export class DashboardComponent implements OnInit {
   }
 
   triggerFilter(){
+    delay(2000)
     this.filteredBooks = this.filterBooks()
   }
 
   filterBooks(): Book[]{
     this.filteredBooks = this.books
-    if( this.titleTerm !== undefined ){
-        if( this.authorTerm !== undefined ){
+    if( this.titleTerm != undefined || this.titleTerm != null ){
+        this.titleTerm = this.titleTerm.trim()
+        if( this.authorTerm != undefined || this.authorTerm != null ){
           this.filteredBooks = this.books.filter(book => book.title.toLowerCase().indexOf(this.titleTerm.toLowerCase()) !== -1 
           && book.author.toLowerCase().indexOf(this.authorTerm.toLowerCase()) !== -1 )
         } else {

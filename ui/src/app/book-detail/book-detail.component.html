@@ -41,7 +41,7 @@
         <div class="button" (click)="back()">Back</div>
         <div class="button" (click)="add(book)">Add to cart</div>
         <div routerLink="/cart" class="button" (click)="add(book)">Buy</div>
-        <div class="danger" (click)="delete(book.id)">Delete</div>
+        <div routerLink="/dashboard" class="danger" (click)="delete(book.id)">Delete</div>
     </div>
 </div>
 <div class="empty" *ngIf="!book">

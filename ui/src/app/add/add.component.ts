@@ -55,7 +55,6 @@ export class AddComponent implements OnInit {
     this.book.weight = this.addForm.value.weight
     this.book.price = this.addForm.value.price
     this.bookService.add(this.book).subscribe((data) => {})
-    this.back()
   }
 
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import netcracker.bookstore.dto.BookDTO;
 import netcracker.bookstore.service.BookService;
@@ -29,8 +32,10 @@ public class BookController {
     
     @GetMapping
     @ApiOperation("Get book list")
-    public List<BookDTO> find(@RequestParam(required = false) String nameRegex){
-        return bookService.findByTitle(nameRegex);
+    public List<BookDTO> find(@ApiParam("title") @RequestParam(value = "title", required = false) String titleTerm,
+                              @ApiParam("author") @RequestParam(value = "author", required = false) String authorTerm,  
+                              @ApiParam("range") @PageableDefault(size = 7) Pageable pageable){ 
+        return bookService.find(titleTerm, authorTerm, pageable);
     }
 
     @GetMapping("/{id}")

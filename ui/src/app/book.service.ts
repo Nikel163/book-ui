@@ -32,6 +32,10 @@ export class BookService {
       )
   }
 
+  // getFilteredBook(title:string, author:string): Observable<Book[]>{
+
+  // }
+
   getBookById(id: string): Observable<Book>{
     const url = `${this.defUrl}/${id}`
     return this.http.get<Book>(url)
@@ -62,6 +66,7 @@ export class BookService {
   }
 
   clear(){
+    this.counter = 0
     this.selectedBooks = []
   }
 
@@ -69,6 +74,7 @@ export class BookService {
     for(var i = 0; i < this.selectedBooks.length; i++){
       if(this.selectedBooks[i] === book){
         this.selectedBooks.splice(i,1)
+        this.counter--
         break
       }
     }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Book } from '../book';
-import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-detail',
@@ -13,10 +12,10 @@ export class BookDetailComponent implements OnInit {
 
   book: Book
 
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor(private bookService: BookService, private router: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getBook(this.router.url.split('/').pop()) 
+    this.router.paramMap.subscribe(params => this.getBook(params.get('id'))) 
   }
 
   back(){
@@ -36,7 +35,6 @@ export class BookDetailComponent implements OnInit {
 
   delete(id: string){
     this.bookService.delete(id).subscribe()
-    this.back()
   }
 
 }

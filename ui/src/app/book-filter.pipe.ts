@@ -6,7 +6,7 @@ import { Book } from './book'
 })
 export class BookFilterPipe implements PipeTransform {
 
-  transform(books: Book[], titleTerm?:any, authorTerm?: any): Book[] {
+  transform(books: Book[], titleTerm?:string, authorTerm?: string): Book[] {
     let result = books
     if( titleTerm !== undefined ){
         if( authorTerm !== undefined ){
