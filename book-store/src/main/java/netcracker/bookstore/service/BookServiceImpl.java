@@ -3,10 +3,13 @@ package netcracker.bookstore.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -41,12 +44,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDTO> find(String titleTerm, String authorTerm, Pageable pageable) {
+    public Page<BookDTO> find(String titleTerm, String authorTerm, Pageable pageable) {
         Query query = buildQuery(titleTerm, authorTerm).with(pageable);
-        return mongoTemplate.find(query, BookEntity.class)
+        List<BookDTO> list = mongoTemplate.find(query, BookEntity.class)
                 .stream().map(BookDTO::new).collect(Collectors.toList());
+        return PageableExecutionUtils.getPage(list, pageable, () -> count(titleTerm, authorTerm));               
     }
-
+    
     @Override
     public BookDTO add(BookDTO book) {
         return new BookDTO(bookRepository.save(new BookEntity(book)));

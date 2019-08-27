@@ -14,7 +14,7 @@
     
 
 <div class="cols">
-    <div class="card" *ngFor="let book of filteredBooks">
+    <div class="card" *ngFor="let book of books | paginate: config">
         <div routerLink="/detail/{{book.id}}" class="title">
             {{book.title}}
         </div> 
@@ -26,5 +26,7 @@
         </div>
     </div>    
 </div>
+
+<pagination-controls class="pgcontrols" (pageChange)="pageChange($event)"></pagination-controls>
 
 

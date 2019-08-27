@@ -2,12 +2,13 @@ package netcracker.bookstore.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import netcracker.bookstore.dto.BookDTO;
 
 public interface BookService {
-    public List<BookDTO> find(String title, String author, Pageable pageable);
+    public Page<BookDTO> find(String title, String author, Pageable pageable);
 
     public long count(String titleTerm, String authorTerm);
 

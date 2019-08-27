@@ -25,16 +25,31 @@ export class BookService {
     private location: Location
   ) { }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.defUrl)
+  getBooks(titleTerm: string, authorTerm: string, config:any): Observable<any> {
+    let url = this.defUrl + `?&size=${config.itemsPerPage}&page=${config.currentPage}`;
+
+    if((titleTerm != undefined || titleTerm != null ) && (authorTerm != undefined || authorTerm != null )){
+      titleTerm = titleTerm.trim()
+      authorTerm = authorTerm.trim()
+      url += `&author=${authorTerm}&title=${titleTerm}`
+    } else {
+      if(titleTerm != undefined || titleTerm != null ){
+        titleTerm = titleTerm.trim()
+        url += `&title=${titleTerm}`         
+      } else {
+        if(authorTerm != undefined || authorTerm != null ){
+          authorTerm = authorTerm.trim()
+          url += `&author=${authorTerm}`         
+        }
+      }  
+    }  
+  
+
+    return this.http.get<any>(url)
       .pipe(
-        catchError(this.handleError<Book[]>('getBooks', []))
+        catchError(this.handleError<any>('getBooks', []))
       )
   }
-
-  // getFilteredBook(title:string, author:string): Observable<Book[]>{
-
-  // }
 
   getBookById(id: string): Observable<Book>{
     const url = `${this.defUrl}/${id}`

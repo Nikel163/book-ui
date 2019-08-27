@@ -7,8 +7,7 @@ import { BookDetailComponent } from "./book-detail/book-detail.component";
 import { CartComponent } from "./cart/cart.component";
 
 const routes: Routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-    { path: 'dashboard', component: DashboardComponent },
+    { path: '', component: DashboardComponent },
     { path: 'add', component: AddComponent },
     { path: 'detail/:id', component: BookDetailComponent},
     { path: 'cart', component: CartComponent },

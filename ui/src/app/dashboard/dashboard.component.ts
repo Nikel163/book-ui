@@ -11,22 +11,21 @@ import { delay } from 'rxjs/operators';
 export class DashboardComponent implements OnInit {
   
   books: Book[]
-  filteredBooks: Book[]
   titleTerm: string
   authorTerm: string
+  config = {
+    itemsPerPage: 7,
+    currentPage: 0,
+    totalItems: 0
+  }
+
 
   constructor(
     private bookService: BookService
   ) { }
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe(
-      books => {
-        this.books = books
-        this.filteredBooks = books
-      }
-    )
-    
+    this.getBooks()
   }
 
   add(book: Book){
@@ -34,22 +33,40 @@ export class DashboardComponent implements OnInit {
   }
 
   triggerFilter(){
-    delay(2000)
-    this.filteredBooks = this.filterBooks()
+    this.getBooksDelayed()
   }
 
-  filterBooks(): Book[]{
-    this.filteredBooks = this.books
-    if( this.titleTerm != undefined || this.titleTerm != null ){
-        this.titleTerm = this.titleTerm.trim()
-        if( this.authorTerm != undefined || this.authorTerm != null ){
-          this.filteredBooks = this.books.filter(book => book.title.toLowerCase().indexOf(this.titleTerm.toLowerCase()) !== -1 
-          && book.author.toLowerCase().indexOf(this.authorTerm.toLowerCase()) !== -1 )
-        } else {
-          this.filteredBooks = this.books.filter(book => book.title.toLowerCase().indexOf(this.titleTerm.toLowerCase()) !== -1)
+  getBooksDelayed(){
+    this.bookService.getBooks(this.titleTerm, this.authorTerm, this.config)
+      .pipe(delay(2000))
+      .subscribe(
+        data => {
+          this.books = data.content
+          this.config = {
+            itemsPerPage: data.size,
+            currentPage: data.number,
+            totalItems: data.totalElements
+          }
         }
-    }
-    return this.filteredBooks
+      )     
+  }
+
+  getBooks(){
+    this.bookService.getBooks(this.titleTerm, this.authorTerm, this.config).subscribe(
+      data => {
+        this.books = data.content
+        this.config = {
+          itemsPerPage: data.size,
+          currentPage: data.number + 1,
+          totalItems: data.totalElements
+        }
+      }
+    )
+  }
+
+  pageChange(event){
+    this.config.currentPage = event - 1
+    this.getBooks()
   }
 
 }
